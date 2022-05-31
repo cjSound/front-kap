@@ -107,31 +107,7 @@
 8. **JS** 引擎解析过程（ JS 的解释阶段，预处理阶段，执⾏阶段⽣成执⾏上下⽂， **VO** ，作⽤域链、回收机制等等）
 9. 其它（可以拓展不同的知识模块，如跨域，web安全， **hybrid** 模式等等内容）
 
-## ❤如何进⾏⽹站性能优化
-- content ⽅⾯ 
-  - 减少 **HTTP** 请求：合并⽂件、 **CSS 精灵**、 **inline Image**
-  - 减少 **DNS** 查询： DNS 缓存、将资源分布到恰当数量的主机名 
-  - 减少 DOM 元素数量 按需加载，滚动加载
-- Server ⽅⾯ 
-  - 使⽤ **CDN**
-  - 配置 **ETag**
-  - 对组件使⽤ Gzip 压缩
-- Cookie ⽅⾯ 
-  - 减⼩ cookie ⼤⼩
-- css ⽅⾯ 
-  - 将样式表放到⻚⾯顶部 
-  - 不使⽤ CSS 表达式 
-  - 使⽤ <link> 不使⽤ @import
-- Javascript ⽅⾯ 
-  - 将脚本放到⻚⾯底部 
-  - 将 javascript 和 css 从外部引⼊ 
-  - 压缩 javascript 和 css
-  - 删除不需要的脚本
-  - 减少 **DOM** 访问 
-- 图⽚⽅⾯ 
-  - 优化图⽚：根据实际颜⾊需要选择⾊深、压缩 
-  - 优化 css 精灵 
-  - 不要在 HTML 中拉伸图⽚
+
 ##  HTTP状态码及其含义
 - 1XX ：信息状态码
   - 100 Continue 继续，⼀般在发送 post 请求时，已发送了 http header 之后服务端 将返回此信息，表示确认，之后发送具体参数信息
@@ -188,7 +164,8 @@
 ## HTML5 的离线储存怎么使用，工作原理是什么
 
 - 在用户没有与因特网连接时，可以正常访问站点或应用，在用户与因特网连接时，更新用户机器上的缓存文件。
-### 原理：HTML5 的离线存储是基于一个新建的 .appcache 文件的缓存机制（不是存储技术）
+### 原理：
+- HTML5 的离线存储是基于一个新建的 .appcache 文件的缓存机制（不是存储技术）
 - 通过这个文件上的解析清单离线存储资源，这些资源就会像 cookie 一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。
 ### 如何使用：
 - （1）创建一个和 html 同名的 manifest 文件，然后在页面头部像下面一样加入一个
@@ -226,4 +203,213 @@ manifest 的属性。
 ## 浏览器是怎么对 HTML5 的离线储存资源进行管理和加载的呢？
 - 在线的情况下，浏览器发现 html 头部有 **manifest** 属性，它会请求 manifest 文件，如果是第一次访问 **app** ，那么浏览器就会根据 manifest 文件的内容下载相应的资源并且进行离线存储。如果已经访问过 app 并且资源已经离线存储了，那么浏览器就会**使用离线的资源加载页面**，然后浏览器会*对比新的 manifest 文件与旧的 manifest 文件*，如果文件**没有发生改变，就不做任何操作**，如果文件改变了，那么就会**重新下载文件中的资源并进行离线存储**。
 - 离线的情况下，浏览器就直接使用离线存储的资源
+
+## 请描述⼀下 cookies ， sessionStorage 和 localStorage 的区别？
+- cookie 是⽹站为了标示⽤户身份⽽储存在⽤户本地终端（Client Side）上的数据（通常
+经过加密）
+- cookie数据始终在同源的http请求中携带（即使不需要），记会在浏览器和服务器间来回
+传递
+-  <ofont>sessionStorage 和 localStorage</ofont>      不会⾃动把数据发给服务器，仅在本地保存
+- 存储⼤⼩：
+  - cookie 数据⼤⼩不能超过4k
+  - sessionStorage 和 localStorage 虽然也有存储⼤⼩的限制，但⽐ cookie ⼤得多，<ofont>可以达到5M或更⼤</ofont>
+- 有期时间：
+  - localStorage 存储持久数据，浏览器关闭后数据 <ofont>不丢失除⾮主动删除数据</ofont>
+  - sessionStorage 数据在当前浏览器窗⼝关闭后 <ofont>⾃动删除</ofont>
+  - cookie 设置的 cookie 过期时间之前⼀直有效，即使窗⼝或浏览器关闭
+
+##  iframe有那些缺点？
+- iframe 会<ofont>阻塞主⻚⾯的 Onload </ofont>事件
+- 搜索引擎的检索程序⽆法解读这种⻚⾯，不利于 SEO
+- iframe 和<ofont>主⻚⾯共享连接池</ofont>，⽽浏览器对相同域的连接有限制，所以会<ofont> 影响⻚⾯的并⾏加载</ofont>
+- 使⽤ iframe 之前需要考虑这两个缺点。如果需要使⽤ iframe ，最好是通过 <ofont>javascript 动态给 iframe 添加 src 属性值</ofont>，这样可以绕开以上两个问题
+
+## xhtml和html有什么区别?
+- ⼀个是功能上的差别 <ofont>XHTML 是更严格更纯净的 HTML 代码。</ofont>
+  - 主要是 <ofont>XHTML 可兼容各⼤浏览器</ofont>、⼿机以及 PDA ，并且浏览器也能快速正确地编译⽹⻚
+- 文档结构
+  - XHTML **DOCTYPE** 是强制性的
+  - `<html> 中的 XML namespace 属性是强制性的`
+  - `<html>、<head>、<title> 以及 <body> 也是强制性的`
+- 元素语法
+  - XHTML 元素必须正确嵌套
+  - XHTML 元素必须始终关闭
+  - XHTML 元素必须小写
+  - XHTML 文档必须有一个根元素
+- 属性语法
+  - XHTML 属性必须使用小写
+  - XHTML 属性值必须用引号包围
+  - XHTML 属性最小化也是禁止的
+## Doctype作⽤? 严格模式与混杂模式如何区分？它们有何意义?
+
+- ⻚⾯被加载的时， link 会同时被加载，⽽ @import ⻚⾯被加载的时， link 会同时被加
+载，⽽ @import 引⽤的 CSS 会**等到⻚⾯被加载完再加**载 
+- import 只在 IE5 以上才能识别，⽽ link 是 XHTML 标签，**⽆兼容问题** link ⽅式的样式的 **权重 ⾼于 @import 的权重**
+- `<!DOCTYPE>` 声明位于⽂档中的最前⾯，处于 `<html>` 标签之前。告知浏览器的解析器， ⽤什么⽂档类型 规范来解析这个⽂档
+- 严格模式的排版和 JS 运作模式是 以该浏览器⽀持的最⾼标准运⾏
+- 在混杂模式中，⻚⾯以宽松的向后兼容的⽅式显示。模拟⽼式浏览器的⾏为以防⽌站点⽆法⼯作。 DOCTYPE 不存在或格式不正确会导致⽂档以混杂模式呈现
+
+## ❤⾏内元素有哪些？块级元素有哪些？ 空(void)元素有那些？⾏内元素和块级元素有什么区别？
+
+- ⾏内元素有：<ofont> a b span img input select strong</ofont>
+- 块级元素有： <ofont>div ul ol li dl dt dd h1 h2 h3 h4… p</ofont>
+- 空元素：  **`<br> <hr> <img> <input> <link> <meta>`**
+- ⾏内元素不可以设置宽⾼，不独占⼀⾏
+- 块级元素可以设置宽⾼，独占⼀⾏
+
+
+## HTML全局属性(global attribute)有哪些
+  - class :为元素设置类标识
+  - **data-*** : 为元素增加⾃定义属性
+  - draggable : 设置元素是否可拖拽
+  - id : 元素 id ，⽂档内唯⼀
+  - **lang** : 元素内容的的语⾔
+  - style : ⾏内 css 样式
+  - title : 元素相关的建议信息
+
+## Canvas和SVG有什么区别？
+
+- svg 绘制出来的每⼀个图形的元素都是独⽴的** DOM 节点**，能够⽅便的**绑定事件或⽤来修改**。 canvas 输出的是 **⼀整幅画布**
+
+- svg 输出的图形是⽮量图形，后期可以修改参数来⾃由放⼤缩⼩，**不会失真和锯⻮**。⽽canvas 输出标量画布，就像⼀张图⽚⼀样，放⼤会失真或者锯⻮
+
+
+## HTML5 为什么只需要写 `<!DOCTYPE HTML>`
+- HTML5 不基于 SGML ，因此不需要对 DTD 进⾏引⽤，但是需要 doctype 来规范浏览器的⾏为
+- ⽽ HTML4.01 基于 SGML ,所以需要对 DTD 进⾏引⽤，才能告知浏览器⽂档所使⽤的⽂档类型
+
+##  如何在⻚⾯上实现⼀个圆形的可点击区域？
+- svg
+- border-radius
+- 纯 js 实现 需要求⼀个点在不在圆上简单算法、获取⿏标坐标等等
+
+
+## ⽹⻚验证码是⼲嘛的，是为了解决什么安全问题
+- 区分⽤户是计算机还是⼈的公共全⾃动程序。可以防⽌恶意破解密码、刷票、论坛灌⽔
+- 有效防⽌⿊客对某⼀个特定注册⽤户⽤特定程序暴⼒破解⽅式进⾏不断的登陆尝试
+
+## ❤viewport
+
+```HTML
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimu
+ // width 设置viewport宽度，为⼀个正整数，或字符串‘device-width’
+ // device-width 设备宽度
+ // height 设置viewport⾼度，⼀般设置了宽度，会⾃动解析出⾼度，可以不⽤设置
+ // initial-scale 默认缩放⽐例（初始缩放⽐例），为⼀个数字，可以带⼩数
+ // minimum-scale 允许⽤户最⼩缩放⽐例，为⼀个数字，可以带⼩数
+ // maximum-scale 允许⽤户最⼤缩放⽐例，为⼀个数字，可以带⼩数
+ // user-scalable 是否允许⼿动缩放
+```
+### 延伸提问 怎样处理 移动端 1px 被 渲染成 2px 问题
+- 局部处理
+  - mate 标签中的 viewport 属性 ， initial-scale 设置为 1
+  - rem 按照设计稿标准⾛，外加利⽤ transfrome 的 scale(0.5) 缩⼩⼀倍即可
+- 全局处理
+  - mate 标签中的 viewport 属性 ， initial-scale 设置为 0.5
+  - rem 按照设计稿标准⾛即可
+
+##  meta viewport相关
+
+```html
+<!DOCTYPE html> <!--H5标准声明，使⽤ HTML5 doctype，不区分⼤⼩写-->
+<head lang=”en”> <!--标准的 lang 属性写法-->
+<meta charset=’utf-8′> <!--声明⽂档使⽤的字符编码-->
+<meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/> <!--优先使
+<meta name=”description” content=”不超过150个字符”/> <!--⻚⾯描述-->
+<meta name=”keywords” content=””/> <!-- ⻚⾯关键词-->
+<meta name=”author” content=”name, email@gmail.com”/> <!--⽹⻚作者-->
+<meta name=”robots” content=”index,follow”/> <!--搜索引擎抓取-->
+<meta name=”viewport” content=”initial-scale=1, maximum-scale=3, minimum-sc
+<meta name=”apple-mobile-web-app-title” content=”标题”> <!--iOS 设备 begin-->
+<meta name=”apple-mobile-web-app-capable” content=”yes”/> <!--添加到主屏后的标
+是否启⽤ WebApp 全屏模式，删除苹果默认的⼯具栏和菜单栏-->
+<meta name=”apple-itunes-app” content=”app-id=myAppStoreID, affiliate-data=
+<!--添加智能 App ⼴告条 Smart App Banner（iOS 6+ Safari）-->
+<meta name=”apple-mobile-web-app-status-bar-style” content=”black”/>
+<meta name=”format-detection” content=”telphone=no, email=no”/> <!--设置苹果
+<meta name=”renderer” content=”webkit”> <!-- 启⽤360浏览器的极速模式(webkit)-->
+<meta http-equiv=”X-UA-Compatible” content=”IE=edge”> <!--避免IE使⽤兼容模
+<meta http-equiv=”Cache-Control” content=”no-siteapp” /> <!--不让百度转码-
+<meta name=”HandheldFriendly” content=”true”> <!--针对⼿持设备优化，主要是针
+<meta name=”MobileOptimized” content=”320″> <!--微软的⽼式浏览器-->
+<meta name=”screen-orientation” content=”portrait”> <!--uc强制竖屏-->
+<meta name=”x5-orientation” content=”portrait”> <!--QQ强制竖屏-->
+<meta name=”full-screen” content=”yes”> <!--UC强制全屏-->
+<meta name=”x5-fullscreen” content=”true”> <!--QQ强制全屏-->
+<meta name=”browsermode” content=”application”> <!--UC应⽤模式-->
+<meta name=”x5-page-mode” content=”app”> <!-- QQ应⽤模式-->
+<meta name=”msapplication-tap-highlight” content=”no”> <!--windows phone
+设置⻚⾯不缓存-->
+<meta http-equiv=”pragma” content=”no-cache”>
+<meta http-equiv=”cache-control” content=”no-cache”>
+<meta http-equiv=”expires” content=”0″>
+
+```
+## div+css的布局较table布局有什么优点
+- 改版的时候更⽅便 只要改 css ⽂件。
+- ⻚⾯加载速度更快、结构化清晰、⻚⾯显示简洁。
+- 表现与结构相分离。
+- 易于优化（ seo ）搜索引擎更友好，排名更容易靠前。
+
+## img的alt与title有何异同？
+- alt(alt text) :倘若图片加载不成功未能显示出来，就 **`会在图片未显示的地方出现一段文字`**。这一作用是为了给未加载出来的图片提供信息，方便用户浏览网页，同时也方便开发人员维护网页。
+- title(tool tip) :该属性为设置该属性的元素提供 **建议性的信息**
+
+## strong与em的异同？
+- strong : 粗体**强调标签**，强调，表示内容的重要性
+- em :斜体强调标签，**更强烈强调**，表示内容的强调点  
+
+## 渐进增强和优雅降级之间的异同
+- 渐进增强：针对低版本浏览器进⾏构建⻚⾯，保证最基本的功能，然后再针对⾼级浏览器进⾏效果、交互等改进和追加功能达到更好的⽤户体验。
+- 优雅降级：⼀开始就构建完整的功能，然后再针对低版本浏览器进⾏兼容。
+
+::: tip  区别
+优雅降级是从复杂的现状开始，并试图减少⽤户体验的供给，⽽渐进增强则是从⼀个⾮常基础的，能够起作⽤的版本开始，并不断扩充，以适应未来环境的需要。
+
+降级（功能衰减）意味着往回看；⽽渐进增强则意味着朝前看，同时保证其根基处于安全地带
+:::
+
+## ❤为什么利⽤多个域名来存储⽹站资源会更有效
+
+- CDN 缓存更⽅便
+- 突破浏览器并发限制
+- 节约 cookie 带宽
+- 节约主域名的连接数，优化⻚⾯响应速度
+- 防⽌不必要的安全问题
+
+
+## ❤src与href的区别
+- src ⽤于**替换当前元素**，href⽤于在当前⽂档和引⽤资源之间**确⽴联系**。
+- src 是 source 的缩写，指向外部资源的位置，指向的内容将会嵌⼊到⽂档中当前标签所在位置；在请求 src 资源时会将其指向的资源下载并应⽤到⽂档内，例如<ofont> js 脚本，img 图⽚和 frame</ofont> 等元素
+::: tip JS脚本会阻塞
+`<script src ="js.js"></script>` 当浏览器解析到该元素时，会 <ofont> 暂停其他资源的下载和处理</ofont>，直到将该资源加载、编译、执⾏完毕
+
+<ofont>图⽚和框架等元素也如此</ofont>，类似于将所指向资源嵌⼊当前标签内。这也是为什么 <ofont>将js脚本放在底部⽽不是头部</ofont>
+
+::: 
+- href 是 **Hypertext Reference** 的缩写，指向⽹络资源所在位置，建⽴和当前元素（锚点）或当前⽂档（链接）之间的链接，如果我们在⽂档中添加
+- `<link href="common.css" rel="stylesheet"/>` 那么浏览器会识别该⽂档为 css ⽂件，就会 **并⾏下载资源**并且**不会停⽌对当前⽂档的处理**。
+- 这也是为什么建议使⽤ link ⽅式来加载 css ，⽽不是使⽤ @import ⽅式
+
+
+
+## 常⻅排序算法的时间复杂度,空间复杂度
+| 排序方法| 平均情况 | 最好情况 | 最坏情况 | 辅助空间 |  
+| :------ | ------ | ------ | ------ | ------ |  
+| 直接插入 | O(n²) |  O(n) |O(n²) | O(1) |  
+| 希尔排序 | O(nlog₂n)~ O(n²) |  O(n) |O(n²) | O(1) |  
+| 冒泡排序 | O(n²) |  O(n) |O(n²) | O(1) |  
+| 快速排序 | O(nlog₂n)  |  O(nlog₂n) |O(n²) | O(log₂n)~O(n) |  
+| 简单选择| O(n²) |  O(n²) |O(n²) | O(1) |  
+| 堆排序| O(nlog₂n) | O(nlog₂n) | O(nlog₂n) | O(1) |  
+
+## ☆ web开发中会话跟踪的⽅法有哪些
+- cookie
+- session
+- url 重写
+- 隐藏 input
+- ip 地址
+
+
 <obit-gif/>
+<ofont></ofont>

@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-05-31 16:17:17
+ * @LastEditTime: 2022-05-31 23:14:56
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
@@ -58,6 +58,8 @@ module.exports = {
       text: '基础',
       children: [
         '/base/get-started.md',
+        '/base/optimize.md',
+        '/base/css.md',
       ]
     },
     {
@@ -72,6 +74,8 @@ module.exports = {
           isGroup: true,
           children: [
             '/base/get-started.md',
+            '/base/optimize.md',
+            '/base/css.md',
           ]
         }
       ],
@@ -82,9 +86,9 @@ module.exports = {
     searchPlugin({
       hotKeys: ['ctrl', 'k'],
       maxSuggestions: 10,
-      // getExtraFields: (page) => {
-      //   return page.frontmatter.tags ?? []
-      // },
+      getExtraFields: (page) => {
+        return page.frontmatter.tags ?? []
+      },
 
       locales: {
         '/': {
