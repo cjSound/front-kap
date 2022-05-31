@@ -14,16 +14,16 @@
     "vuepress-plugin-demo-container-vue3": "^1.0.0"
   },
   "devDependencies": {
-    "@vuepress/plugin-search": "2.0.0-beta.25",
+    "@vuepress/plugin-search": "2.0.0-beta.35",
     "ant-design-vue": "^2.2.6",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "rimraf": "^3.0.2",
     "shelljs": "^0.8.4",
     "ssh2-sftp-client": "^7.0.1",
-    "vite": "2.5.10",
-    "vuepress": "2.0.0-beta.25",
-    "vuepress-vite": "2.0.0-beta.25"
+        "vite": "~2.8.0",
+    "vuepress": "2.0.0-beta.35",
+    "vuepress-vite": "2.0.0-beta.35"
   },
   "browser": {
     "crypto": false
