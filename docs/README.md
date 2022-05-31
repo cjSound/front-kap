@@ -16,4 +16,3 @@ features:
 footer:  MIT Licensed | Copyright  © 2022-present <a href="https://beian.miit.gov.cn" target="_blank">湘ICP备18020462号-1</a>
 footerHtml: true
 ---
-<SearchBox ></SearchBox>

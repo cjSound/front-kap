@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2022-01-22 09:20:23
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-01-24 13:18:10
+ * @LastEditTime: 2022-05-31 15:04:18
  * @Description: fileContent
 -->
 <template>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import obitTip from 'obit-wui/components/obit-tip'
+import obitTip from './../../../components/obit-tip/obit-tip.vue'
 export default {
   components: { obitTip }
 }

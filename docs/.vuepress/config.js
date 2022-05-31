@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-05-31 14:33:37
+ * @LastEditTime: 2022-05-31 16:17:17
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
@@ -33,6 +33,7 @@ module.exports = {
   //     }
   //   }
   // )],
+  lang: 'zh-CN',
   base: '/kap/',
   host: '0.0.0.0',
   title: '前端基础知识',
@@ -79,23 +80,27 @@ module.exports = {
   },
   plugins: [
     searchPlugin({
-      search: true,
+      hotKeys: ['ctrl', 'k'],
+      maxSuggestions: 10,
+      // getExtraFields: (page) => {
+      //   return page.frontmatter.tags ?? []
+      // },
+
       locales: {
         '/': {
-          placeholder: 'Search',
+          placeholder: '搜索',
         },
-        '/zh/': {
+        '/zh-CN/': {
           placeholder: '搜索',
         },
       },
-      hotKeys: ['ctrl', 'f'],
     }),
-    [
-      require('vuepress-plugin-demo-container-vue3'),
-      {
-        componentsDir: path.resolve(__dirname, './../examples')
-      }
-    ],
+    // [
+    //   require('vuepress-plugin-demo-container-vue3'),
+    //   {
+    //     componentsDir: path.resolve(__dirname, './../examples')
+    //   }
+    // ],
 
   ],
   alias: {

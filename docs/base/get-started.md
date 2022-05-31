@@ -1,5 +1,4 @@
 # HTML、HTTP、web综合问题
-<SearchBox ></SearchBox>
 
 ## ❤前端需要注意哪些SEO
 - 合理的  <ofont color="red" bold>title 、 description 、 keywords：</ofont>     搜索对着三项的权重逐个减⼩， title值强调重点即可，重要关键词出现不要超过2次，⽽且要靠前，不同⻚⾯ title 要有所不同； description 把⻚⾯内容⾼度概括，⻓度合适，不可过分堆砌关键词，不同⻚⾯description 有所不同； keywords 列举出重要关键词即可
