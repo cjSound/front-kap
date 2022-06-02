@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-01 11:10:05
+ * @LastEditTime: 2022-06-02 15:41:02
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
@@ -60,6 +60,7 @@ module.exports = {
         '/base/get-started.md',
         '/base/optimize.md',
         '/base/css.md',
+        '/base/js.md',
       ]
     },
     {
@@ -76,6 +77,7 @@ module.exports = {
             '/base/get-started.md',
             '/base/optimize.md',
             '/base/css.md',
+            '/base/js.md',
           ]
         }
       ],
