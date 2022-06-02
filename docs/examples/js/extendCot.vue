@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2022-06-02 15:46:12
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-02 16:31:14
+ * @LastEditTime: 2022-06-02 17:01:25
  * @Description: 构造继承
 -->
 <template>
@@ -25,13 +25,13 @@ export default {
       this.name = name || 'Parents';
       // 实例方法
       this.sleep = function () {
-        let msg = `我是：${this.name}`
+        let msg = `实例方法继承：我是${this.name}`
         console.log(msg);
         return msg
       }
     }
     Parents.prototype.hello = function () {
-      console.log(`hello：${this.name}`);
+      console.log(`原型方法也继承了，${this.name}`);
     }
     // 构造继承
     class Cat {
