@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-02 15:41:02
+ * @LastEditTime: 2022-06-07 09:58:47
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
@@ -64,6 +64,14 @@ module.exports = {
       ]
     },
     {
+      text: '笔记',
+      children: [
+        '/note/app.md',
+        '/note/attention.md',
+        '/note/appbug.md'
+      ]
+    },
+    {
       text: 'GitHub',
       link: 'https://github.com/cjSound/front-kap.git'
     },
@@ -78,6 +86,17 @@ module.exports = {
             '/base/optimize.md',
             '/base/css.md',
             '/base/js.md',
+          ]
+        }
+      ],
+      '/note/': [
+        {
+          text: '笔记',
+          isGroup: true,
+          children: [
+            '/note/app.md',
+            '/note/attention.md',
+            '/note/appbug.md'
           ]
         }
       ],
