@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-07 09:58:47
+ * @LastEditTime: 2022-06-08 18:09:36
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
@@ -58,9 +58,19 @@ module.exports = {
       text: '基础',
       children: [
         '/base/get-started.md',
-        '/base/optimize.md',
         '/base/css.md',
         '/base/js.md',
+        '/base/code.md',
+        '/base/more.md',
+      ]
+    },
+    {
+      text: '经典',
+      children: [
+        '/classics/optimize.md',
+        '/classics/cache.md',
+        '/classics/run.md',
+        '/classics/webpack.md',
       ]
     },
     {
@@ -83,9 +93,22 @@ module.exports = {
           isGroup: true,
           children: [
             '/base/get-started.md',
-            '/base/optimize.md',
             '/base/css.md',
             '/base/js.md',
+            '/base/code.md',
+            '/base/more.md',
+          ]
+        }
+      ],
+      '/classics/': [
+        {
+          text: '经典',
+          isGroup: true,
+          children: [
+            '/classics/optimize.md',
+            '/classics/cache.md',
+            '/classics/run.md',
+            '/classics/webpack.md',
           ]
         }
       ],
