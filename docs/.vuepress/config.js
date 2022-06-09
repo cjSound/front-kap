@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-08 18:09:36
+ * @LastEditTime: 2022-06-09 17:16:15
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
@@ -62,6 +62,7 @@ module.exports = {
         '/base/js.md',
         '/base/code.md',
         '/base/more.md',
+        '/base/vue.md',
       ]
     },
     {
@@ -71,6 +72,7 @@ module.exports = {
         '/classics/cache.md',
         '/classics/run.md',
         '/classics/webpack.md',
+        '/classics/intbase.md',
       ]
     },
     {
@@ -97,6 +99,7 @@ module.exports = {
             '/base/js.md',
             '/base/code.md',
             '/base/more.md',
+            '/base/vue.md',
           ]
         }
       ],
@@ -109,6 +112,7 @@ module.exports = {
             '/classics/cache.md',
             '/classics/run.md',
             '/classics/webpack.md',
+            '/classics/intbase.md',
           ]
         }
       ],
