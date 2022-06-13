@@ -337,7 +337,7 @@ console.log(c.a)
 ```
 
 
-## async、await 优缺点
+## ❤async、await 优缺点
 
 :::tip
 async 和 await 相⽐直接使⽤ **Promise** 来说，优势在于**处理 then 的调⽤链**，能够更清晰准确的写出代码。
@@ -361,8 +361,80 @@ console.log('1', a) // -> '1' 1
 - 因为 await 是异步操作，遇到 **await** 就会⽴即返回⼀个 **pending** 状态的 **Promise** 对象，暂时返回执⾏代码的控制权，使得函数外的代码得以继续执⾏，所以会先执⾏ **console.log('1', a)**
 - 这时候同步代码执⾏完毕，开始执⾏异步代码，将保存下来的值拿出来使⽤，这时候 **a =10**
 - 然后后⾯就是常规执⾏代码了
+### async 源码解析
+- **async ES6 源码**
+```js
+const test1 = async () => {
+    console.log(1)
+    await console.log(2)
+    console.log(3)
+}
+```
+- **babel 解析**
+```js
+// _asyncToGenerator 内部 生成器
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+	try {
+		var info = gen[key](arg);
+		var value = info.value;
+	} catch (error) {
+		reject(error);
+		return;
+	}
+	if (info.done) {
+		resolve(value);
+	} else {
+		Promise.resolve(value)
+			.then(_next, _throw);
+	}
+}
 
-## generator 原理
+function _asyncToGenerator(fn) {
+	return function() {
+		var self = this,
+			args = arguments;
+		return new Promise(function(resolve, reject) {
+			var gen = fn.apply(self, args);
+
+			function _next(value) {
+				asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+			}
+
+			function _throw(err) {
+				asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+			}
+			_next(undefined);
+		});
+	};
+}
+// babel 解析代码
+var test1 = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+    return _regeneratorRuntime().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            console.log(1);
+            _context.next = 3;
+            return console.log(2);
+
+          case 3:
+            console.log(3);
+
+          case 4:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function test1() {
+    return _ref.apply(this, arguments);
+  };
+}
+```
+## ❤generator 生成器 原理
 Genertor 函数的最大的特点就是可以**交出函数的执行权**（即暂停执行）。
 :::tip generator
 **Generator** 是 ES6 中新增的语法，和 **Promise** ⼀样，都可以⽤来异步编程

@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-09 17:16:15
+ * @LastEditTime: 2022-06-13 17:10:49
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
@@ -80,7 +80,8 @@ module.exports = {
       children: [
         '/note/app.md',
         '/note/attention.md',
-        '/note/appbug.md'
+        '/note/appbug.md',
+        '/note/vue.md'
       ]
     },
     {
@@ -123,7 +124,8 @@ module.exports = {
           children: [
             '/note/app.md',
             '/note/attention.md',
-            '/note/appbug.md'
+            '/note/appbug.md',
+            '/note/vue.md'
           ]
         }
       ],
