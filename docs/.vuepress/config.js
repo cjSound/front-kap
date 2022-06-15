@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-14 12:35:46
+ * @LastEditTime: 2022-06-15 17:14:53
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
@@ -76,6 +76,7 @@ module.exports = {
         '/classics/browser.md',
         '/classics/zoom.md',
         '/classics/http.md',
+        '/classics/interview.md',
       ]
     },
     {
@@ -120,6 +121,7 @@ module.exports = {
             '/classics/browser.md',
             '/classics/zoom.md',
             '/classics/http.md',
+            '/classics/interview.md',
           ]
         }
       ],
