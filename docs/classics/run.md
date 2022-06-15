@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2022-06-08 16:58:47
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-09 11:08:10
+ * @LastEditTime: 2022-06-14 12:33:33
  * @Description: fileContent
 -->
 # js运行机制
@@ -67,6 +67,39 @@ console.log('script end');
 - 宏任务包括 **script ， setTimeout ， setInterval ， setImmediate ， I/O ，UI renderin**
 :::tip Script
 
+
+```js 
+setTimeout(function () {
+  console.log("1");
+}, 0);
+async function async1() {
+  console.log("2");
+  const data = await async2();
+  console.log("3");
+  return data;
+}
+async function async2() {
+  return new Promise((resolve) => {
+    console.log("4");
+    resolve("async2的结果");
+  }).then((data) => {
+    console.log("5");
+    return data;
+  });
+}
+async1().then((data) => {
+  console.log("6");
+  console.log(data);
+});
+new Promise(function (resolve) {
+  console.log("7");
+  //   resolve()
+}).then(function () {
+  console.log("8");
+});
+
+// 执行顺序是  2->4->7->5->3->6-> async2 的结果 ->1
+```
 很多⼈有个误区，认为微任务快于宏任务，其实是错误的。
 
 因为宏任务中包括了 **script** ，浏览器会先执⾏⼀个宏任务，接下来有异步代码的话就先执⾏微任务

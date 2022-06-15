@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-13 17:10:49
+ * @LastEditTime: 2022-06-14 12:35:46
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
@@ -73,6 +73,9 @@ module.exports = {
         '/classics/run.md',
         '/classics/webpack.md',
         '/classics/intbase.md',
+        '/classics/browser.md',
+        '/classics/zoom.md',
+        '/classics/http.md',
       ]
     },
     {
@@ -114,6 +117,9 @@ module.exports = {
             '/classics/run.md',
             '/classics/webpack.md',
             '/classics/intbase.md',
+            '/classics/browser.md',
+            '/classics/zoom.md',
+            '/classics/http.md',
           ]
         }
       ],

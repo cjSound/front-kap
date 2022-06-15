@@ -1,3 +1,10 @@
+/*
+ * @Author: 曹捷
+ * @Date: 2022-06-13 18:18:02
+ * @LastEditors: 曹捷
+ * @LastEditTime: 2022-06-14 10:14:50
+ * @Description: fileContent
+ */
 var CompileUtil = {
     getVal (vm, exp) { // 获取实例上对应的数据
         exp = exp.split('.');
@@ -23,6 +30,7 @@ var CompileUtil = {
         let updateFn = this.updater['textUpdater'];
         let value = this.getTextVal(vm, exp);
         exp.replace(/\{\{([^}]+)\}\}/g, (...arg) => {
+            console.log(111)
             new Watcher(vm, arg[1], newValue => {
                 // 如果数据变化了，文本节点应该重新获取依赖的数据更新文本中的内容
                 updateFn && updateFn(node, newValue);
@@ -35,6 +43,7 @@ var CompileUtil = {
         let updateFn = this.updater['modelUpdater'];
         let value = this.getVal(vm, exp);
         // 这里应该加一个监控，数据变化了，应该调用 watch 的回调
+        console.log(222)
         new Watcher(vm, exp, newValue => {
             updateFn && updateFn(node, newValue);
         });

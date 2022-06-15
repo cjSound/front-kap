@@ -2,8 +2,8 @@
  * @Author: 曹捷
  * @Date: 2022-06-13 18:10:09
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-13 18:14:29
- * @Description: fileContent
+ * @LastEditTime: 2022-06-14 10:17:38
+ * @Description: 数据劫持，就是把对象的所有属性添加 set 和 get 方法
  */
 class Dep {
     constructor() {
@@ -47,7 +47,7 @@ class Observer {
             configurable: true,
             get () { // 当取值时调用的方法
                 Dep.target && dep.addSub(Dep.target);
-                console.log(dep.subs);
+                console.log(`劫持 [${key}] 获取数据：`, dep.subs);
                 return value;
             },
             set (newValue) { // 当给 data 属性中设置的值适合，更改获取的属性的值

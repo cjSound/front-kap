@@ -2,13 +2,13 @@
  * @Author: 曹捷
  * @Date: 2022-06-13 18:10:37
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-13 18:14:34
- * @Description: fileContent
+ * @LastEditTime: 2022-06-14 10:16:20
+ * @Description: 观察者的目的就是给需要变化的那个元素增加一个观察者，当数据变化后执行对应的方法
  */
-// 观察者的目的就是给需要变化的那个元素增加一个观察者，当数据变化后执行对应的方法
 class Watcher {
     constructor(vm, exp, callback) {
         this.vm = vm;
+        console.log('🚀 ~ file: Watch.js ~ line 11 ~ constructor ~ vm', vm, exp)
         this.exp = exp;
         this.callback = callback;
         // 先获取一下老的值
