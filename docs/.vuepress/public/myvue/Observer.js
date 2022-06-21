@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2022-06-13 18:10:09
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-14 10:17:38
+ * @LastEditTime: 2022-06-16 12:01:56
  * @Description: 数据劫持，就是把对象的所有属性添加 set 和 get 方法
  */
 class Dep {
@@ -43,8 +43,9 @@ class Observer {
 
         // 获取某个值被监听到
         Object.defineProperty(object, key, {
-            enumerable: true,
-            configurable: true,
+            writable: true,//表示能否修改属性的值。默认值为true
+            enumerable: true, // 表示能否通过for in循环访问属性，默认值为true
+            configurable: true,//表示能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性，默认值为true。
             get () { // 当取值时调用的方法
                 Dep.target && dep.addSub(Dep.target);
                 console.log(`劫持 [${key}] 获取数据：`, dep.subs);
