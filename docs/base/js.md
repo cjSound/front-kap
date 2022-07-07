@@ -261,12 +261,40 @@ prefetch 跟 preload 不同，它的作用是告诉浏览器**未来可能会使
 ### 差异
 preload 是告诉浏览器**页面必定需要的资源**，浏览器一定会加载这些资源，而 prefetch 是告诉浏览器页面**可能需要的资源**，浏览器**不一定会加载这些资源**。所以建议：对于当前页面很有必要的资源使用 preload，对于可能在将来的页面中使用的资源使用 prefetch。
 
-##  那些操作会造成内存泄漏？
-内存泄漏指任何对象在您不再拥有或需要它之后仍然存在
+##  ❤那些操作会造成内存泄漏？
+当一个对象已经不需要再使用本该被回收时，另外一个正在使用的对象持有它的引用从而导致它不能被回收，这导致本该被回收的对象不能被回收而停留在堆内存中，这就产生了内存泄漏
+### 意外的全局变量引起的内存泄露
+```js
+function leak(){
+    leak='xxx';//leak成为一个全局变量，不会被回收
+}
+```
 - **setTimeout** 的第⼀个参数使⽤字符串⽽⾮函数的话，会引发内存泄漏
 - 闭包使⽤不当
-- 递归死循环
 
+### 被遗忘的定时器或者回调
+```js
+var someResource = getData();
+setInterval(function() {
+    var node = document.getElementById('Node');
+    if(node) {
+        node.innerHTML = JSON.stringify(someResource));
+    }
+}, 1000);
+```
+这样的代码很常见, 如果id为Node的元素从DOM中移除, 该定时器仍会存在, 同时, 因为回调函数中包含对someResource的引用, 定时器外面的someResource也不会被释放
+
+###  DOM泄漏
+在浏览器中DOM和JS所采用的引擎是不一样的，DOM采用的是渲染引擎，而JS采用的是v8引擎，所以在用JS操作DOM时会比较耗费性能，所以为了减少DOM的操作，我们会采用变量引用的方式会将其缓存在当前环境。如果在进行一些删除、更新操作之后，可能会忘记释放已经缓存的DOM因此造成了内存泄漏
+
+例：对没有清理的DOM元素引用
+```js
+var refA = document.getElementById('refA');
+document.body.removeChild(refA); // #refA不能回收，因为存在变量refA对它的引用。
+将其对#refA引用释放，但还是无法回收#refA。
+```
+
+解决办法：设置refA = null;
 ##  XML和JSON的区别？
 - 数据体积⽅⾯
     - JSON 相对 于XML 来讲，数据的**体积⼩**，传递的速度更快些。

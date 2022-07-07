@@ -1,8 +1,8 @@
 /*
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
- * @LastEditors: cjSound 876304802@qq.com
- * @LastEditTime: 2022-06-21 15:32:47
+ * @LastEditors: 曹捷
+ * @LastEditTime: 2022-07-06 11:58:28
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
@@ -41,12 +41,12 @@ module.exports = {
   port: 6002,
   open: true,
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/kap/favicon.ico' }],
   ],
   locales: {
     '/': {
       lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
-    },
+    }
   },
 
   themeConfig: {
@@ -123,8 +123,8 @@ module.exports = {
             '/classics/zoom.md',
             '/classics/http.md',
             '/classics/interview.md',
-        '/classics/array.md',
-      ]
+            '/classics/array.md',
+          ]
         }
       ],
       '/note/': [

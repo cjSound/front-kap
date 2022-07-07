@@ -52,6 +52,13 @@ Cache-control: max-age=30
 - 对于频繁变动的资源，可以使⽤ Cache-Control: **no-cache** 并配合 **ETag** 使⽤，表示该资源已被缓存，但是**每次都会发送请求询问资源是否更新**。
 - 对于代码⽂件来说，通常使⽤ **Cache-Control: max-age=31536000** 并配合策略缓存使⽤，然后对⽂件进⾏指纹处理，⼀旦⽂件名变动就会⽴刻下载新的⽂件
 
+### 缓存顺序
+- 首先检查Cache-Control， 尝鲜，看强缓存是否可用
+- 如果可用的话，直接使用
+- 否则进入协商缓存，发送HTTP请求，服务器通过请求头中的**If-Modified-Since**或者**If-None-Match**字段检查资源是否更新
+- 资源更新，返回资源和200状态码。
+- 否则，返回304，直接告诉浏览器直接从缓存中去资源。
+
 
 
 ##  cookie、localSrorage、session、indexDB
