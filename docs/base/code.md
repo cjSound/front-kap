@@ -1,5 +1,6 @@
 # 编程
 ## 冒泡排序
+- 由小到大
 - 每次⽐较相邻的两个数，如果后⼀个⽐前⼀个⼩，换位置
 ```js
 var arr = [3, 1, 4, 6, 5, 7, 2];
@@ -16,7 +17,7 @@ function bubbleSort(arr) {
     }
     return arr;
 }
-console.log(bubbleSort(arr));
+console.log(bubbleSort(arr)); //[1, 2, 3, 4, 5, 6, 7]
 ```
 ## 快速排序
 - 采⽤⼆分法，取出中间数，数组每次和中间数⽐较，⼩的放到左边，⼤的放到右边
