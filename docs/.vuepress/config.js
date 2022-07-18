@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-07-06 11:58:28
+ * @LastEditTime: 2022-07-17 20:03:52
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
@@ -42,6 +42,7 @@ module.exports = {
   open: true,
   head: [
     ['link', { rel: 'icon', href: '/kap/favicon.ico' }],
+    ['script', { src: '/kap/js/g2plot.min.js' }],
   ],
   locales: {
     '/': {
@@ -86,7 +87,8 @@ module.exports = {
         '/note/app.md',
         '/note/attention.md',
         '/note/appbug.md',
-        '/note/vue.md'
+        '/note/vue.md',
+        '/note/shun.md'
       ]
     },
     {
@@ -135,7 +137,8 @@ module.exports = {
             '/note/app.md',
             '/note/attention.md',
             '/note/appbug.md',
-            '/note/vue.md'
+            '/note/vue.md',
+            '/note/shun.md'
           ]
         }
       ],
