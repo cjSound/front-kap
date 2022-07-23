@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2022-07-17 19:52:57
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-07-19 22:05:21
+ * @LastEditTime: 2022-07-21 23:54:31
  * @Description: fileContent
 -->
 <template>
@@ -98,7 +98,7 @@ export default {
           yField: 'time',
           xAxis: {
             // type: 'timeCat',
-            tickCount: 5,
+            // tickCount: 5,
           },
           yAxis: {
             title: { text: '时间(h)' },
