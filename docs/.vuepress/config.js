@@ -92,6 +92,12 @@ module.exports = {
       ]
     },
     {
+      text: 'react',
+      children: [
+        '/react/note.md',
+      ]
+    },
+    {
       text: 'GitHub',
       link: 'https://github.com/cjSound/front-kap.git'
     },
@@ -139,6 +145,15 @@ module.exports = {
             '/note/appbug.md',
             '/note/vue.md',
             '/note/shun.md'
+          ]
+        }
+      ],
+      '/react/': [
+        {
+          text: 'react',
+          isGroup: true,
+          children: [
+            '/react/note.md',
           ]
         }
       ],
