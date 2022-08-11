@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2022-07-17 20:11:01
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-07-22 23:34:00
+ * @LastEditTime: 2022-07-26 22:56:02
  * @Description: 日学习时间
  */
 export const studyList = [
@@ -14,5 +14,9 @@ export const studyList = [
     { date: '7-20', time: 8.75 },
     { date: '7-21', time: 9 },
     { date: '7-22', time: 8.25 },
+    { date: '7-23', time: 6.75 },
+    { date: '7-24', time: 7.75 },
+    { date: '7-25', time: 8.25 },
+    { date: '7-26', time: 6.75 },
     // { date: '7-18', time: 8 },
 ]

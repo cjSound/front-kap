@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2022-07-17 19:52:57
  * @LastEditors: 曹捷
- * @LastEditTime: 2022-07-21 23:54:31
+ * @LastEditTime: 2022-07-25 22:33:02
  * @Description: fileContent
 -->
 <template>
@@ -116,14 +116,14 @@ export default {
           annotations: [
             {
               type: 'regionFilter',
-              start: ['min', 9],
+              start: ['min', 8],
               end: ['max', '0'],
               color: '#F4664A',
             },
             {
               type: 'text',
-              position: ['min', 9],
-              content: '目标时间【9h】',
+              position: ['min', 8],
+              content: '目标时间【8h】',
               offsetY: -4,
               style: {
                 textBaseline: 'bottom',
@@ -131,8 +131,8 @@ export default {
             },
             {
               type: 'line',
-              start: [0, 9],
-              end: ['max', 9],
+              start: [0, 8],
+              end: ['max', 8],
               style: {
                 stroke: '#FF4500',
                 lineDash: [2, 2],
