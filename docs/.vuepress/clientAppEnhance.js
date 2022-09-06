@@ -1,14 +1,14 @@
 /*
  * @Author: 曹捷
  * @Date: 2020-03-05 20:27:42
- * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-08 12:06:59
+ * @LastEditors: cjSound 876304802@qq.com
+ * @LastEditTime: 2022-09-06 23:14:32
  * @Description: file content
  */
 // import VueHighlightJS from 'vue-highlightjs'
 import Antd from 'ant-design-vue'
+import './styles/antd.css'
 import './styles/index.less'
-import 'ant-design-vue/dist/antd.css'
 import { defineClientAppEnhance } from '@vuepress/client'
 import Components from './components'
 export default defineClientAppEnhance(({ app, router, siteData }) => {

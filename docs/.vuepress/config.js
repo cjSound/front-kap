@@ -1,14 +1,14 @@
 /*
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
- * @LastEditors: 曹捷
- * @LastEditTime: 2022-07-17 20:03:52
+ * @LastEditors: cjSound 876304802@qq.com
+ * @LastEditTime: 2022-09-06 23:05:11
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
 const { searchPlugin } = require('@vuepress/plugin-search')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '../../' + dir)
 }
 const ssrTransformCustomDir = () => {
@@ -98,6 +98,14 @@ module.exports = {
       ]
     },
     {
+      text: 'TS',
+      children: [
+        '/typescript/type.md',
+        '/typescript/compile.md',
+        '/typescript/oop.md',
+      ]
+    },
+    {
       text: 'GitHub',
       link: 'https://github.com/cjSound/front-kap.git'
     },
@@ -154,6 +162,17 @@ module.exports = {
           isGroup: true,
           children: [
             '/react/note.md',
+          ]
+        }
+      ],
+      '/typescript/': [
+        {
+          text: 'TypeScript',
+          isGroup: true,
+          children: [
+            '/typescript/type.md',
+            '/typescript/compile.md',
+            '/typescript/oop.md',
           ]
         }
       ],
