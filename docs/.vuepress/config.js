@@ -88,6 +88,7 @@ module.exports = {
         '/note/attention.md',
         '/note/appbug.md',
         '/note/vue.md',
+        '/note/typescript.md',
         '/note/shun.md'
       ]
     },
@@ -95,6 +96,8 @@ module.exports = {
       text: 'react',
       children: [
         '/react/note.md',
+        '/react/hook.md',
+        '/react/router3.md',
       ]
     },
     {
@@ -152,6 +155,7 @@ module.exports = {
             '/note/attention.md',
             '/note/appbug.md',
             '/note/vue.md',
+            '/note/typescript.md',
             '/note/shun.md'
           ]
         }
@@ -162,6 +166,8 @@ module.exports = {
           isGroup: true,
           children: [
             '/react/note.md',
+            '/react/hook.md',
+            '/react/router3.md',
           ]
         }
       ],

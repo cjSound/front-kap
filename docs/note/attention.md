@@ -1,10 +1,3 @@
-<!--
- * @Author: 曹捷
- * @Date: 2022-06-07 09:56:31
- * @LastEditors: 曹捷
- * @LastEditTime: 2022-06-07 09:59:29
- * @Description: fileContent
--->
 
 # app端注意的点
 ## 引入IFrame ，对应的h5页面会嵌入状态栏

@@ -2,8 +2,33 @@
 
 ## 开发思路
 - 确定 UI state 的最小（且完整）表示
-## 组件React.FC
+## 组件React.FC Hook
 - 函数式组件
+```js
+let cache = undefined
+const useState =(defaultValue) => {
+    if (cache === undefined) cache = defaultValue
+    return [cache, (v)=>{ cache = v }];
+};
+
+let cacheEffect
+let cacheEffectDeps
+let needRun
+const useEffect = (effect, deps) => {
+    needRun = false
+    if (diff(deps, cacheEffectDeps)) {
+        cacheEffect = effect
+        cacheEffectDeps = deps
+        needRun = true
+    }
+
+    if (needRun) {
+        App.afterRender(() => {
+            cacheEffect();
+        })
+    }
+}
+```
 ## className hash?
 ## 生命周期 只在class组件生效？
 - 初始化(Initialization)
@@ -41,6 +66,30 @@ constructor()是JS中原生类的构造函数，理论上他不专属于组件�
 在这两种情况下，React 的事件对象 e 会被作为第二个参数传递。如果通过箭头函数的方式，事件对象必须显式的进行传递，而通过 bind 的方式，事件对象以及更多的参数将会被隐式的进行传递。
 ## 和第三方库进行整合
 ## react hoc 高阶组件
+```js
+const HOC = (Comp) => {
+    class AppHoc {
+        render() {
+            return <Comp name="123" {...this.props} />
+        }
+    }
+    return AppHoc
+}
+
+const store = {}
+const connect = (opt) => {
+    return (Comp) => {
+
+        class AppHoc {
+            render() {
+                const reduxProps = opt.mapStateToProps(store)
+                return <Comp {...reduxProps} {...this.props} />
+            }
+        }
+        return AppHoc
+    }
+}
+```
 ## react-router
 ## react-redux
 ## useContext
