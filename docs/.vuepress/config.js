@@ -98,6 +98,7 @@ module.exports = {
         '/react/note.md',
         '/react/hook.md',
         '/react/router3.md',
+        '/react/decorators.md',
       ]
     },
     {
@@ -168,6 +169,7 @@ module.exports = {
             '/react/note.md',
             '/react/hook.md',
             '/react/router3.md',
+            '/react/decorators.md',
           ]
         }
       ],
