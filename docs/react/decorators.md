@@ -1,5 +1,30 @@
 # 装饰器
 
+
+## 安装
+### 依赖
+```npm
+"@babel/plugin-proposal-class-properties": "^7.4.0"
+"@babel/plugin-proposal-decorators": "^7.4.0"
+```
+|注: 为了让vscode 支持decorator语法, 需要在tsconfig.ts中进行如下设置
+```js
+{
+	"experimentalDecorators": true,
+}
+
+```
+### Babel
+```js
+{
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose" : true }]
+  ]
+}
+
+```
+
 ## 装饰器的应用例子
 
 ### 1、为所有被装饰的页面设置统一的背景色

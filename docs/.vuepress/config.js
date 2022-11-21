@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
  * @LastEditors: cjSound 876304802@qq.com
- * @LastEditTime: 2022-09-06 23:05:11
+ * @LastEditTime: 2022-11-21 15:19:26
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
