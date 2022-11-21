@@ -1,1 +1,0 @@
-import{_ as e,o as r,c as t}from"./app.84c19619.js";const o={setup(){}},s={src:"./../myvue/vue.html",frameborder:"0"};function c(a,_,n,u,f,p){return r(),t("iframe",s)}var i=e(o,[["render",c],["__file","vue2.vue"]]);export{i as default};

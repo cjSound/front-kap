@@ -1,1 +1,0 @@
-const t={key:"v-09692a58",path:"/react/router3.html",title:"Router V3",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u6309\u9700\u52A0\u8F7D",slug:"\u6309\u9700\u52A0\u8F7D",children:[]}],git:{updatedTime:1663050856e3,contributors:[{name:"cjSound",email:"876304802@qq.com",commits:1}]},filePathRelative:"react/router3.md"};export{t as data};
