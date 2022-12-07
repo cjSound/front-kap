@@ -127,4 +127,15 @@ class SomePlugin extends React.Component {
 ## 差异性
 - vue 是数据驱动，核心是双向绑定，改变数据和监听数据的改变，所有的事件围绕数据的改变
 - react为事件驱动改变，数据的改变只会重绘render，render通过differ重新渲染return的jsx，判断更改的地方，并且重新渲染
-## 
+## 遇到的问题
+
+### 函数组件内部使用React.lazy
+- 问题描述
+
+如果放在函数组件内部，每次组件render，lazy会被重新执行，对应的自定义组件会是一个全新的，会导致组件整个重新加载，导致各种问题
+
+- 解决方案：
+  - 1、lazy动态加载模块化
+  - 2、引用lazy的组件改成class组件，获取自定义组件逻辑不写到render里面
+
+
