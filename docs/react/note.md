@@ -139,3 +139,84 @@ class SomePlugin extends React.Component {
   - 2、引用lazy的组件改成class组件，获取自定义组件逻辑不写到render里面
 
 
+## 组件组
+
+### Demo
+在页面开发中，使用单选按钮我们一般会像下面这样去写：
+
+```html 
+<input type="radio" name="colors" id="red">红色<br>
+<input type="radio" name="colors" id="blue">蓝色<br>
+<input type="radio" name="colors" id="yellow">黄色<br>
+```
+为了能让多个单选按钮组成单选按钮组，我们需要给多个单选按钮指定相同的``name``，但实际上原生的单选按钮样式并不好看，通过我们都是使用封装过的单选按钮组，UI效果类似下图这样的
+
+封装完之后，在页面的使用代码类似下图所示这样
+
+```html 
+  <Radio.Group>
+    <Radio value="red">红色</Radio>
+    <Radio value="blue">蓝色</Radio>
+    <Radio value="yellow">黄色</Radio>
+  </Radio.Group>
+```
+**怎么方便的给Radio.Group指定name。**
+### 单选组件
+
+```tsx
+import React from "react";
+
+export interface IProps {
+  name?: string;
+  value: any;
+}
+
+const Radio: React.FunctionComponent<React.PropsWithChildren<IProps>> = ({
+  name,
+  value,
+  children,
+}) => {
+  // 示例代码，未定义样式
+  return (
+    <label>
+      <span>
+        <input type="radio" name={name} value={value}></input>
+      </span>
+      <span>{children}</span>
+    </label>
+  );
+};
+
+export default Radio;
+```
+### Group 组件
+**使用React.Children解决name位置问题**
+```tsx
+export interface IProps {
+  name: string;
+  children: React.ReactNode;
+}
+
+const Group: React.FC<IProps> = ({ name, children }) => {
+  return (
+    <div>
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, {
+            name: name,
+          });
+        }
+        throw new Error("子组件必须是React.ReactElement类型");
+      })}
+    </div>
+  );
+};
+```
+在上面的代码中，我们引入了**React.Children**,**React.isValidElement**,**React.cloneElement**三个API,将我们想要的功能实现了出来，那么这三个API都是做什么的，都有什么用呢？
+
+#### React.Children
+  [React.Children](https://zh-hans.reactjs.org/docs/react-api.html#reactchildren)
+####  React.isValidElement
+用于验证传入的是不是React Element，在前文我们在Radio.Group中有使用到这个API,因为props.children对于我们来说是不透明的，所以当我们需要对组件做某些只有React Element才有的操作的时候，就需要调用这个API来进行验证
+#### React.cloneElement
+用于克隆一个元素，然后返回一个新的元素，在前文我们在Radio.Group中有使用到这个API。那么什么时候会用到这个API呢？当我们希望修改props.children的属性的时候，就可以使用这个API了 
