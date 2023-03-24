@@ -5,6 +5,7 @@
       :key="index"
       style="margin-bottom: 20px"
     >
+      <h2>Q:{{ titleList[index] }}</h2>
       <div
         v-html="item.message.content"
         style="white-space: pre-line; width: 100%"
@@ -29,6 +30,7 @@ export default {
       content: "",
       choices: [],
       loading: false,
+      titleList: [],
     });
 
     let _methods = {
@@ -52,6 +54,7 @@ export default {
               },
             }
           );
+          _data.titleList.push(_data.content);
           _data.content = "";
           console.log("🚀 ~ file: chat-gpt.vue:39 ~ search ~ data:", data);
           _data.choices = _data.choices.concat(data.choices);
