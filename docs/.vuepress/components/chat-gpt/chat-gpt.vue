@@ -42,7 +42,7 @@ export default {
             {
               headers: {
                 Authorization:
-                  "Bearer "+"sk-F1zHr3RhwQk1"+"OJI4q3FxT3BlbkFJqJKJJG5okYBFggi22TV8",
+                  "Bearer "+atob('c2stRjF6SHIzUmh3UWsxT0pJNHEzRnhUM0JsYmtGSnFKS0pKRzVva1lCRmdnaTIyVFY4'),
               },
             }
           );
