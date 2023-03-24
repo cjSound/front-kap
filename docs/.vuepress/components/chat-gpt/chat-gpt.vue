@@ -13,7 +13,7 @@
       :key="index"
       style="margin-bottom: 20px"
     >
-      <div v-html="item.message.content"></div>
+      <div v-html="item.message.content" style="white-space: pre"></div>
     </div>
   </div>
 </template>
@@ -42,7 +42,10 @@ export default {
             {
               headers: {
                 Authorization:
-                  "Bearer "+atob('c2stUklRbmdlaWhvbmpqY1BhbmhwU3BUM0JsYmtGSm5pVlg1MjBNT1JZZkRCc0hzSFdH'),
+                  "Bearer " +
+                  atob(
+                    "c2stUklRbmdlaWhvbmpqY1BhbmhwU3BUM0JsYmtGSm5pVlg1MjBNT1JZZkRCc0hzSFdH"
+                  ),
               },
             }
           );
