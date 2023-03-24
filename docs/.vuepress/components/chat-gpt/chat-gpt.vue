@@ -1,5 +1,15 @@
 <template>
   <div>
+    <div
+      v-for="(item, index) in choices"
+      :key="index"
+      style="margin-bottom: 20px"
+    >
+      <div
+        v-html="item.message.content"
+        style="white-space: pre-line; width: 100%"
+      ></div>
+    </div>
     <div>
       <textarea
         style="width: 100%"
@@ -8,13 +18,6 @@
       ></textarea>
     </div>
     <button @click="search">{{ loading ? "加载中..." : "搜索" }}</button>
-    <div
-      v-for="(item, index) in choices"
-      :key="index"
-      style="margin-bottom: 20px"
-    >
-      <div v-html="item.message.content" style="white-space: pre-line;width: 100%;"></div>
-    </div>
   </div>
 </template>
 
