@@ -92,7 +92,42 @@ const connect = (opt) => {
 ```
 ## react-router
 ## react-redux
-## useContext
+## Context
+
+### 类组件消费Context
+在 React 类组件中，可以使用 static ``contextType`` 和 Context.Consumer 来消费多个 Context。
+
+假设有两个 Context，分别是 ThemeContext 和 UserContext，以下是一个使用这两个 Context 的类组件示例：
+```tsx
+import React from 'react';
+import ThemeContext from './ThemeContext';
+import UserContext from './UserContext';
+
+class MyComponent extends React.Component {
+  static contextType = ThemeContext;
+
+  render() {
+    const { theme } = this.context;
+
+    return (
+      <UserContext.Consumer>
+        {user => (
+          <div style={{ color: theme === 'dark' ? 'white' : 'black' }}>
+            Hello, {user.name}!
+          </div>
+        )}
+      </UserContext.Consumer>
+    );
+  }
+}
+
+```
+在这个示例中，ThemeContext 作为 MyComponent 的静态属性 ``contextType``，可以使用 this.context 获取当前主题。另外，通过 UserContext.Consumer 消费 UserContext 中的数据，即用户名称，这里使用了函数作为子元素来获取数据。
+
+由于 UserContext 没有被声明为 MyComponent 的 ``contextType``，所以需要通过 Consumer 组件来获取其中的数据。
+
+需要注意的是，每个 ``contextType`` **只能关联一个 Context**。如果需要使用多个 Context，请使用 ``Context.Consumer`` 来获取其他 Context 中的数据。
+
 ## 组件嵌套 插槽～？
 使用props传递或者 默认 props.children
 ```js

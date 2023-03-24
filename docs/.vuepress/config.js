@@ -2,7 +2,7 @@
  * @Author: 曹捷
  * @Date: 2020-02-26 11:45:28
  * @LastEditors: cjSound 876304802@qq.com
- * @LastEditTime: 2022-11-21 15:47:07
+ * @LastEditTime: 2023-03-24 11:09:48
  * @Description: 配置中心
  */
 const { path } = require('@vuepress/utils')
@@ -43,6 +43,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/front-kap/favicon.ico' }],
     ['script', { src: '/front-kap/js/g2plot.min.js' }],
+    ['script', { src: '/front-kap/js/axios.js' }],
   ],
   locales: {
     '/': {
@@ -107,6 +108,12 @@ module.exports = {
         '/typescript/type.md',
         '/typescript/compile.md',
         '/typescript/oop.md',
+      ]
+    },
+    {
+      text: 'GPT',
+      children: [
+        '/gpt/gpt.md',
       ]
     },
     {
@@ -184,6 +191,15 @@ module.exports = {
           ]
         }
       ],
+      '/gpt/':[
+        {
+          text: 'ChatGPT',
+          children: [
+            '/gpt/gpt.md',
+          ]
+        }
+      ]
+      
     }
 
   },
