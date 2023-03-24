@@ -13,7 +13,7 @@
       :key="index"
       style="margin-bottom: 20px"
     >
-      <div v-html="item.message.content" style="white-space: pre"></div>
+      <div v-html="item.message.content" style="white-space: pre-line;width: 100%;"></div>
     </div>
   </div>
 </template>
