@@ -5,7 +5,7 @@
     "doc": "vuepress dev docs",
     "doc:build": "vuepress build docs",
     "deploy": "git pull && node script/deploy.js",
-    "deploy:doc": "git pull && node deploy/index.js doc",
+    "deploy:doc": "vuepress build docs && node script/deploy.js",
     "cdn:clear": "rimraf cdn/ && webpack --config webpack.dll.config.js",
     "cdn": "webpack --config webpack.dll.config.js"
   },
@@ -27,6 +27,9 @@
   },
   "browser": {
     "crypto": false
+  },
+  "engines": {
+    "node": ">=14.0.0 <=17.0.0"
   },
   "browserslist": [
     "> 1%",
