@@ -1,0 +1,1 @@
+const t={key:"v-031f096b",path:"/gpt/gpt.html",title:"ChatGPT",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1679628071e3,contributors:[{name:"cjSound",email:"876304802@qq.com",commits:1}]},filePathRelative:"gpt/gpt.md"};export{t as data};
