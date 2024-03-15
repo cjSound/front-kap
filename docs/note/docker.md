@@ -64,10 +64,12 @@ docker run -d \
 ```
 
 ![alt text](./image-2.png)
+
 ## 示例：安装 Nginx
+
 ```shell
 # 拉取最新的Nginx镜像
-docker pull nginx 
+docker pull nginx
 
 # 创建容器并运行
 docker run  -d --name nginx -p 80:80 -v ng1Html:/usr/share/nginx/html nginx
@@ -76,14 +78,15 @@ docker run  -d --name nginx -p 80:80 -v ng1Html:/usr/share/nginx/html nginx
 docker stop nginx
 
 # 重启Nginx 容器
-docker start nginx 
+docker start nginx
 
 
 
 ```
+
 **-v ng1Html:/usr/share/nginx/html**：将宿主机上的 ng1Html 目录挂载到容器内的 /usr/share/nginx/html 目录。
 
-这意味着容器内的 Nginx 服务器将使用宿主机上的 ``ng1Html`` 目录作为网站的根目录。
+这意味着容器内的 Nginx 服务器将使用宿主机上的 `ng1Html` 目录作为网站的根目录。
 
 ## 命令解读
 
@@ -92,50 +95,65 @@ docker 常用命令
 :::
 [Docker Hub](https://hub.docker.com/)是 Docker 提供的官方的镜像仓库，可以查询所有的官方镜像和环境变量设置等信息
 
-[Docker命令大全官方文档](https://docs.docker.com/reference/)，
+[Docker 命令大全官方文档](https://docs.docker.com/reference/)，
 ![alt text](./image-6.png)
 
 **以下是一些常用命令**
-### docker run 
+
+### docker run
+
 创建并运行一个隔离容器，每次执行会**重新创建一个新的容器**
 
 **-d** 是让容器在后台运行
+
 - --name mysql :给容器命名为 mysql
 - -p 3306:3306 容器端口和宿主机端口映射，**前为宿主机，后为容器内**
 - **-e env 的缩写** KEY=VALUE ，设置环境变量，根据镜像决定支持 MYSQL_ROOT_PASSWORD=password :设置 mysql 的 root 用户密码
 - -e TZ :设置容器时区为上海
 - mysql: 最后为 镜像名，完整格式为 mysql:版本号，如果不指定版本，默认会从 Docker Hub 下载 mysql 最新的版本
 
-### docker pull 
+### docker pull
+
 拉取远端镜像到本地
-### docker images 
+
+### docker images
+
 查看本地所有镜像
-### docker rmi 
-``【rm image】`` 删除本地的镜像
-### docker save 
+
+### docker rmi
+
+`【rm image】` 删除本地的镜像
+
+### docker save
+
 将本地镜像导出为 tar 包
+
 ```shell
 docker save -o nginx.tar nginx:latest
 ```
+
 例如将 nginx 镜像保存到 nginx.tar
 
-### docker load 
+### docker load
 
 导入镜像
-```shell
-docker load -i nginx.tar 
-```
-导入之前save的镜像tar包
 
+```shell
+docker load -i nginx.tar
+```
+
+导入之前 save 的镜像 tar 包
 
 ### docker stop
 
 停止容器，停止后容器会进入停止状态，容器还在，可以通过 docker start 启动
 
 ### docker start
+
 容器内部已经停止状态的容器，可以通过 docker start 启动
 
 ### docker ps 查看容器运行状态
+
 列出当前正在运行的 Docker 容器
 以下是 docker ps 命令的基本语法：
 
@@ -151,14 +169,18 @@ docker ps [options]
 - q：仅显示容器 ID。
 - s：显示容器的大小。
 
-### docker rm 
+### docker rm
+
 删除容器
 
-### docker logs 
+### docker logs
+
 查看容器日志
+
 ```shell
 docker logs [options] CONTAINER
 ```
+
 其中，options 是可选的参数，用于自定义输出，CONTAINER 是要查看日志的容器名称或容器 ID。
 
 以下是一些常用的 docker logs 选项：
@@ -169,7 +191,8 @@ docker logs [options] CONTAINER
 - --until：仅显示直到指定时间的日志。
 - -t 或 --timestamps：在日志输出中包含时间戳。
 
-例如： 查看 Nginx的日志 
+例如： 查看 Nginx 的日志
+
 ```shell
 docker logs -f nginx
 ```
@@ -177,6 +200,7 @@ docker logs -f nginx
 一般会增加-f 打印最新的日志
 
 ### docker exec
+
 进入运行中的容器内部，执行命令
 
 以下是一些常用的 docker exec 选项：
@@ -187,18 +211,20 @@ docker logs -f nginx
 - -u 或 --user：以指定的用户身份运行命令。
 - -w 或 --workdir：设置命令的工作目录。
 
-以下是一个使用 ```docker exec``` 命令的示例：
+以下是一个使用 `docker exec` 命令的示例：
 
 ```shell
 docker exec -it nginx bash
 ```
 
-这将在名为 ``nginx`` 的容器内启动一个交互式的 Bash shell。**-it** 选项表示以交互模式运行命令，并为命令分配一个伪终端。
+这将在名为 `nginx` 的容器内启动一个交互式的 Bash shell。**-it** 选项表示以交互模式运行命令，并为命令分配一个伪终端。
 
 在容器内的 Bash shell 中，您可以执行任何命令，就像在普通的 Linux 系统中一样。要退出容器内的 Bash shell，请输入 **exit** 或按 **Ctrl + D**。
 
 ### 命令图解
+
 ![alt text](./image-5.png)
+
 ### 镜像环境变量
 
 环境变量根据镜像开发者决定支持的环境变量，可以通过 docker inspect 查看
@@ -209,17 +235,46 @@ Docker 镜像官网：[HubDocker](https://hub.docker.com/)
 
 ![alt text](./image-4.png)
 
+### Docker build 构建镜像
+
+利用Dockerfile 构建镜像
 
 
-### 构建镜像
-1、dockerFile 
-2、docker build 
-3、
+命令执行工作空间默认下有Dockerfile文件
 
+```shell
+# 注意：默认生成的镜像平台是arm，注意区分服务器平台
+# 下面是生成amd64 平台的镜像
+docker build --platform linux/amd64 -t   mall-admin_amd64 .
+# 下面是生成arm64 平台的镜像
+docker build  -t   mall-admin_arm64 .
+```
+
+在当前路径下 根据 dockerFile 构建镜像 ，构建的镜像名为 xxxx:version
+
+**单个镜像构建脚本**
+
+```sh
+#!/bin/bash
+local_file="./mall-admin_amd64.tar"
+remote_user="root"
+remote_host="xxx"
+remote_path="/www/wwwroot/images"
+docker build --platform linux/amd64 -t   mall-admin_amd64 .
+docker save -o mall-admin_amd64.tar mall-admin_amd64
+scp "$local_file" "${remote_user}@${remote_host}:${remote_path}"
+
+```
+
+- 构建 amd64 镜像
+- 将镜像导出为 tar 包
+- 将 tar 包上传到服务器
+- 在服务器上 load 镜像
+  - docker load -i 导入的镜像包
 
 ### 命令别名
 
-命令的别名是指在命令行中为一个命令指定一个简短的别名，以便更快地输入和执行该命令。在 Linux 和 Unix 系统中，您可以使用 ``alias`` 命令来创建命令别名。
+命令的别名是指在命令行中为一个命令指定一个简短的别名，以便更快地输入和执行该命令。在 Linux 和 Unix 系统中，您可以使用 `alias` 命令来创建命令别名。
 
 ```shell
 # vi打开root路径下的 shell 配置文件 .bashrc ，全局生效
@@ -235,8 +290,8 @@ alias di='docker images'
 source ~/.bashrc
 ```
 
-
 ## 数据卷
+
 ![alt text](./image-7.png)
 ![alt text](./image-8.png)
 |命令|说明|文档地址|
