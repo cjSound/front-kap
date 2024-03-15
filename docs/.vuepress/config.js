@@ -99,7 +99,7 @@ module.exports = {
       },
       {
         text: '服务器相关',
-        children: ['/service/nginx.md'],
+        children: ['/service/nginx.md', '/service/express.md'],
       },
       {
         text: 'GPT',
@@ -169,7 +169,7 @@ module.exports = {
         {
           text: '服务器',
           isGroup: true,
-          children: ['/service/nginx.md'],
+          children: ['/service/nginx.md', '/service/express.md'],
         },
       ],
       '/gpt/': [
