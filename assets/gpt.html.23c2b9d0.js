@@ -1,0 +1,1 @@
+import{_ as r,g as o,o as c,c as n,b as t,f as s,h as _,F as h}from"./app.705be9e1.js";const p={};function d(l,e){const a=o("chat-gpt");return c(),n(h,null,[e[0]||(e[0]=t("h1",{id:"chatgpt",tabindex:"-1"},[t("a",{class:"header-anchor",href:"#chatgpt","aria-hidden":"true"},"#"),s(" ChatGPT")],-1)),_(a)],64)}var m=r(p,[["render",d],["__file","gpt.html.vue"]]);export{m as default};

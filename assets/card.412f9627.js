@@ -1,0 +1,1 @@
+import{_ as e,o as _,c as a}from"./app.705be9e1.js";const c={},t={class:"ani"};function r(s,o,n,d,p,i){return _(),a("div",t)}var u=e(c,[["render",r],["__scopeId","data-v-88bc0a60"],["__file","card.vue"]]);export{u as default};

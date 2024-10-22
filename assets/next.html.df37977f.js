@@ -1,0 +1,1 @@
+const e={key:"v-c0f77dda",path:"/service/next.html",title:"next js",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1729575619e3,contributors:[{name:"kallencao",email:"userEmail",commits:1}]},filePathRelative:"service/next.md"};export{e as data};

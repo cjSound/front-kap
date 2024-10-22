@@ -1,0 +1,1 @@
+import{_ as t,o as a,c as r,b as n,f as s}from"./app.705be9e1.js";const o={},c={id:"next-js",tabindex:"-1"};function _(d,e){return a(),r("h1",c,e[0]||(e[0]=[n("a",{class:"header-anchor",href:"#next-js","aria-hidden":"true"},"#",-1),s(" next js")]))}var f=t(o,[["render",_],["__file","next.html.vue"]]);export{f as default};

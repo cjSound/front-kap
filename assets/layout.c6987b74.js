@@ -1,0 +1,1 @@
+import{_ as s,o as t,c as o,b as e}from"./app.705be9e1.js";const _={},l={class:"container"};function n(r,a,c,d,i,u){return t(),o("div",l,a[0]||(a[0]=[e("div",{class:"left"},null,-1),e("div",{class:"right"},null,-1),e("div",{class:"main"},null,-1)]))}var v=s(_,[["render",n],["__scopeId","data-v-28fdbae8"],["__file","layout.vue"]]);export{v as default};
